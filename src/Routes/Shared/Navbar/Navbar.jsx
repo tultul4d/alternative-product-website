@@ -11,8 +11,13 @@ const Navbar = () => {
 
   const navItems = 
     <><li><Link to="/">Home</Link></li>
-    <li><Link>About</Link></li>
-    <li><Link to="/login">Login</Link></li></>;
+    <li><Link>Queries </Link></li>
+    <li><Link>Recommendations
+For Me
+ </Link></li>
+    <li><Link>My Queries </Link></li>
+    <li><Link>My recommendations  </Link></li>
+    <li><Link to="/login">Log-in</Link></li></>;
 
   return (
     <div className={`navbar ${isDarkMode ? 'dark-mode' : ''} bg-base-100`}>
@@ -26,17 +31,17 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
-          <h2>Ur.Chosen</h2>
+          <h2 className='text-lg font-serif'>Ur.Chosen</h2>
           <MdFoundation />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 font-serif">
           {navItems}
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-outline btn-warning">Appointment</button>
+       
         <button className="btn btn-outline" onClick={toggleDarkMode}>
           {isDarkMode ? 'Light Mode' : 'Dark Mode'}
         </button>

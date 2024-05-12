@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import img1 from '../../assets/Frame (4).png'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
@@ -26,28 +27,37 @@ const SignUp = () => {
         <div className="hero-content flex-col lg:flex-row ">
           <div className=" w-1/2 mr-5">
             
-           <img src="" alt="" />
+           <img src={img1} alt="" />
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSignUp} className="card-body">
-            <h1 className="text-5xl text-center font-bold">Sign Up</h1>
+            <h1 className="text-5xl text-center font-mono">Sign Up</h1>
             <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text font-mono">Name</span>
                 </label>
                 <input type="name" placeholder="name" name='name' className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text  font-mono">Email</span>
                 </label>
                 <input type="email" placeholder="email" name='email' className="input input-bordered" required />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text"> Confirm Password</span>
+                  <span className="label-text  font-mono">Password</span>
                 </label>
                 <input type="password" placeholder="password" name='password' className="input input-bordered" required />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                </label>
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text  font-mono">Photo URL</span>
+                </label>
+                <input type="photo" placeholder="photo" name='photo' className="input input-bordered" required />
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                 </label>
@@ -57,7 +67,7 @@ const SignUp = () => {
                 <input className="btn btn-primary" type="submit" value="Sign Up" />
               </div>
             </form>
-            <p className='my-4 text-center'>Already Have an Account <Link to="/login" className='text-orange-600' >Login</Link></p>
+            <p className='my-4 text-center font-mono'>Already Have an Account <Link to="/login" className='text-orange-600' >Login</Link></p>
           </div>
         </div>
       </div>

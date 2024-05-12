@@ -6,6 +6,7 @@ const Footer = () => {
         <aside>
        <MdFoundation></MdFoundation>
        <h2>Ur.Chosen</h2>
+       <p>Copyright © 2024 - All right reserved by Ur.Chosen </p>
         </aside> 
         <nav>
           <h6 className="footer-title">Social</h6> 
@@ -17,11 +18,11 @@ const Footer = () => {
             
           </div>
           <aside>
-          <p>Copyright © 2024 - All right reserved by Ur.Chosen </p>
+         
         </aside>
-          <h2>Contact us</h2>
-          <p>phono Number:+8546774636</p>
-          <p>Email: abdul @gmail.com</p>
+          <h2>About us</h2>
+          <p>Name: </p>
+          <p></p>
           {/* <footer className="footer footer-center p-4 bg-base-300 text-base-content">
         <aside>
           <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
