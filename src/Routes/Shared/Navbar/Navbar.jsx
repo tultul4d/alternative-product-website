@@ -1,23 +1,40 @@
-import  { useState } from 'react';
+import  { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MdFoundation } from "react-icons/md";
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Navbar = () => {
+
+
+
+  const {user, logOut} = useContext(AuthContext);
+  const handleSignUp = () =>{
+    logOut()
+    .then(() => console.log("logout"))
+    .catch(error => console.error(error))
+} 
+
+
+
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+  
+ 
 
   const navItems = 
-    <><li><Link to="/">Home</Link></li>
+    <>
+    <li><Link to="/">Home</Link></li>
     <li><Link>Queries </Link></li>
     <li><Link>Recommendations
 For Me
  </Link></li>
-    <li><Link>My Queries </Link></li>
+    <li><Link to="/myqueriers">My Queries </Link></li>
     <li><Link>My recommendations  </Link></li>
-    <li><Link to="/login">Log-in</Link></li></>;
+    {/* <li><Link to="/login">Log-in</Link></li> */}
+    </>;
 
   return (
     <div className={`navbar ${isDarkMode ? 'dark-mode' : ''} bg-base-100`}>
@@ -41,6 +58,15 @@ For Me
         </ul>
       </div>
       <div className="navbar-end">
+
+      {
+                user ? <>
+                <span>{user.email}</span>
+                <a onClick={handleSignUp} className="btn">LogOut</a>
+                </>  : <Link to="/login">
+                <button onClick={handleSignUp} className="btn">Log-in</button>
+                   </Link>
+            }
        
         <button className="btn btn-outline" onClick={toggleDarkMode}>
           {isDarkMode ? 'Light Mode' : 'Dark Mode'}

@@ -1,6 +1,8 @@
 
 
+
 import Banner from "./Banner/Banner";
+import Products from "./Products/Products";
 import Slider from "./Slider/Slider";
 
 
@@ -9,7 +11,9 @@ const Home = () => {
         <div>
             <Banner></Banner>
              <Slider></Slider> 
-            <h2>this is home</h2>
+             <Products></Products>
+           
+            
         </div>
     );
 };

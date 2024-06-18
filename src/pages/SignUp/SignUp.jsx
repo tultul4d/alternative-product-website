@@ -1,33 +1,41 @@
 import { useContext } from "react";
-import img1 from '../../assets/Frame (4).png'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 
 const SignUp = () => {
 
-    const { createUser} = useContext(AuthContext);
+    const { createUser, updateUserProfile} = useContext(AuthContext);
+    
     const handleSignUp = event =>{
         event.preventDefault();
         const form = event.target;
         const name =  form.name.value;
-        const email = form. email.value;
+
+        const email = form.email.value;
+        const photo = form. photo.value;
         const password = form.password.value;
-        console.log(name,email,password);
+        console.log(name,email,password,photo);
 
         createUser(email, password)
         .then(result => {
+          updateUserProfile(
+           name, photo)
             const user = result.user;
             console.log(user);
         })
         .catch(error => console.log(error))
+
+
     }
+
+    
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row ">
           <div className=" w-1/2 mr-5">
             
-           <img src={img1} alt="" />
+        
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSignUp} className="card-body">
@@ -55,12 +63,9 @@ const SignUp = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text  font-mono">Photo URL</span>
+                  <span className="label-text  font-mono">Photo</span>
                 </label>
-                <input type="photo" placeholder="photo" name='photo' className="input input-bordered" required />
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                </label>
+                <input type="text" placeholder="email" name='photo' className="input input-bordered" required />
               </div>
               <div className="form-control mt-6">
                 
