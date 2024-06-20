@@ -9,6 +9,11 @@ import MyQueriers from "../pages/MyQueriers/MyQueriers";
 import ProductUpdate from "../pages/ProductUpdate";
 import QueryDetails from "../pages/QueryDetails";
 
+
+import Query from "../pages/Query";
+import QueryCards from "../pages/QueryCards";
+
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -41,8 +46,15 @@ const router = createBrowserRouter([
           loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
         },
         {
-          path:'/details',
-          element: <QueryDetails></QueryDetails>
+           path: '/query',
+           element: <QueryCards></QueryCards>,
+           loader: () => fetch('http://localhost:5000/product')
+        },
+        
+        {
+          path:'/details/:id',
+          element: <QueryDetails></QueryDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
         }
       ] 
     },

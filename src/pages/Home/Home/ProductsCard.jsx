@@ -3,7 +3,7 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const ProductsCard = ({product}) => {
-    const {name, photo} = product;
+    const {name, photo, brand, title, reason, createdAt} = product;
     const {user} = useContext(AuthContext)
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -18,10 +18,13 @@ const ProductsCard = ({product}) => {
        
         <div className="card-body items-center text-center">
           <h2 className="card-title">{name}</h2>
-          <p>{user?.email}</p>
-          <div className="card-actions">
-            <button className="btn btn-primary">Buy Now</button>
+          <h2 className="card-title font-mono text-slate-500">{title}</h2>
+          <div className=" mt-10 gap-10 ">
+            <h2 className="text-sm ">Brand Name:{brand}</h2>
+            <h2 className="text-sm ">Date Posted: {createdAt}</h2>
           </div>
+          <h2 className=" font-mono text-sm text-slate-700 mt-5"> Alternation Reason: {reason}
+          </h2>
         </div>
       </div>
     );
