@@ -12,6 +12,10 @@ import QueryDetails from "../pages/QueryDetails";
 
 import Query from "../pages/Query";
 import QueryCards from "../pages/QueryCards";
+import Recommend from "../pages/Recommend/Recommend";
+import { RecaptchaVerifier } from "firebase/auth";
+import Recommendations from "../pages/Recommendations/Recommendations";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -55,6 +59,15 @@ const router = createBrowserRouter([
           path:'/details/:id',
           element: <QueryDetails></QueryDetails>,
           loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        },
+        {
+          path: '/recommend/:id',
+          element: <Recommend></Recommend>,
+          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+        },
+        {
+          path: '/recommendations',
+          element: <PrivateRoute><Recommendations></Recommendations></PrivateRoute>
         }
       ] 
     },

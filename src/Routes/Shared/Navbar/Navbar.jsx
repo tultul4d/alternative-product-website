@@ -32,7 +32,7 @@ const Navbar = () => {
 For Me
  </Link></li>
     <li><Link to="/myqueriers">My Queries </Link></li>
-    <li><Link>My recommendations  </Link></li>
+    {/* <li><Link>My recommendations  </Link></li> */}
     {/* <li><Link to="/login">Log-in</Link></li> */}
     </>;
 
@@ -62,7 +62,9 @@ For Me
       {
                 user ? <>
                 <span>{user.email}</span>
+                <li className='text-sm h-1 w-1'><Link to="/recommendations">My recommendations  </Link></li>
                 <a onClick={handleSignUp} className="btn">LogOut</a>
+                
                 </>  : <Link to="/login">
                 <button onClick={handleSignUp} className="btn">Log-in</button>
                    </Link>

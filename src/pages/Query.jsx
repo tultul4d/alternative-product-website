@@ -27,7 +27,7 @@ const Query = ({qr}) => {
      </h2>
      <h2>recommendationCount: 
      </h2>
-     <button className='btn btn-active btn-primary'>recommend</button>
+     <Link to={`/recommend/${_id}`}><button className='btn btn-active btn-primary'>recommend</button></Link>
      <Link to={`/details/${_id}`}><button className='step-primary'>Query Details</button></Link>
    </div>
  </div>

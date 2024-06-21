@@ -10,7 +10,7 @@ const QueryCards = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {
-            query.map(qr => <Query key={qr._id} qr={qr}></Query> )
+            query.map(qr => <Query key={qr.id} qr={qr}></Query> )
           }
         </div>
     );
