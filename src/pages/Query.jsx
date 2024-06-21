@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
-const Query = ({qr, search}) => {
+const Query = ({qr, search, handleGridChange}) => {
     const {_id,name, photo, brand, title, createdAt, reason} = qr
     const {user} = useContext(AuthContext)
     return (
-       <div>
+       <div >
         
         
         

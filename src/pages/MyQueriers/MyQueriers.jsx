@@ -6,6 +6,7 @@ import { data } from "autoprefixer";
 
 const MyQueriers = () => {
   const [queries, setQueries] = useState([]);
+  const [layout, setLayout] = useState('grid-cols-1');
 
   useEffect(() => {
     // Fetch user's queries
@@ -14,6 +15,10 @@ const MyQueriers = () => {
         .then(data => setQueries(data))
         .catch(error => console.error('Error fetching queries:',error));
 }, []);
+
+const handleLayoutChange = (columns) => {
+    setLayout(`grid-cols-${columns}`);
+  };
 
  const handleViewDetails = () => {
 
@@ -49,7 +54,7 @@ const MyQueriers = () => {
     return (
         <div>
           {/* banner div */}
-          <div className="hero " style={{backgroundImage: 'url(https://i.ibb.co/ncV2VJN/view-computer-monitor-display.jpg)'}}>
+          <div className="hero mt-5 rounded-lg" style={{backgroundImage: 'url(https://i.ibb.co/ncV2VJN/view-computer-monitor-display.jpg)'}}>
   <div className="hero-overlay bg-opacity-60"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-sm rounded-lg my-10">
@@ -63,8 +68,13 @@ const MyQueriers = () => {
             
            
          <div className="queries-section">
+         <div className="flex justify-center space-x-4 mt-5">
+            <button className="btn btn-primary" onClick={() => handleLayoutChange(1)}>1 Column</button>
+            <button className="btn btn-primary" onClick={() => handleLayoutChange(2)}>2 Columns</button>
+            <button className="btn btn-primary" onClick={() => handleLayoutChange(3)}>3 Columns</button>
+          </div>
                 {queries.length > 0 ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className={`grid ${layout} gap-5`}>
                         {queries.map(query => (
                             <QueryCard
                                 key={query._id} 

@@ -8,12 +8,17 @@ import { useState } from "react";
 const QueryCards = () => {
   const query = useLoaderData();
   const [search, setSearch] = useState('');
+  const [layout, setLayout] = useState('grid-cols-1');
 
   const handleSearch = e =>{
     e.preventDefault();
     const searchText = e.target.search.value;
     console.log(searchText);
     setSearch(searchText);
+  }
+  
+  const handleLayoutChange = (layout) => {
+    setLayout(layout);
   }
   console.log(query);
     return (
@@ -25,7 +30,12 @@ const QueryCards = () => {
             <input type="submit" value="Search" />
           </form>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-4">
+          <button className="btn mr-2" onClick={() => handleLayoutChange('grid-cols-1')}>1 Column</button>
+          <button className="btn mr-2" onClick={() => handleLayoutChange('grid-cols-2')}>2 Columns</button>
+          <button className="btn" onClick={() => handleLayoutChange('grid-cols-3')}>3 Columns</button>
+        </div>
+          <div className={`grid ${layout} gap-5 mt-5`}>
           {
             query.map(qr => <Query key={qr.id} qr={qr}></Query> )
           }
@@ -33,5 +43,5 @@ const QueryCards = () => {
         </div>
     );
 };
-
+// grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5
 export default QueryCards;
