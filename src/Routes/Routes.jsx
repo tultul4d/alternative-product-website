@@ -16,6 +16,7 @@ import Recommend from "../pages/Recommend/Recommend";
 import { RecaptchaVerifier } from "firebase/auth";
 import Recommendations from "../pages/Recommendations/Recommendations";
 import PrivateRoute from "./PrivateRoute";
+import RecommendationsForMe from "../pages/RecommendationsForMe/RecommendationsForMe";
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'myqueriers',
-          element: <MyQueriers></MyQueriers>
+          element: <PrivateRoute><MyQueriers></MyQueriers></PrivateRoute>
         },
         {
           path: 'addqueries',
@@ -68,7 +69,15 @@ const router = createBrowserRouter([
         {
           path: '/recommendations',
           element: <PrivateRoute><Recommendations></Recommendations></PrivateRoute>
+        },
+        
+        {
+          path: '/recommendforme',
+          element: <PrivateRoute> <RecommendationsForMe></RecommendationsForMe></PrivateRoute>
         }
+      
+      
+
       ] 
     },
   ]);

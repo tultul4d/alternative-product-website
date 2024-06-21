@@ -28,12 +28,32 @@ const Navbar = () => {
     <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/query">Queries </Link></li>
-    <li><Link>Recommendations
-For Me
- </Link></li>
-    <li><Link to="/myqueriers">My Queries </Link></li>
+  
+    
     {/* <li><Link>My recommendations  </Link></li> */}
     {/* <li><Link to="/login">Log-in</Link></li> */}
+    {
+                user ? <>
+                
+                
+                <br />
+
+               
+ <li><Link to="/myqueriers">My Queries </Link></li>
+ <li><Link to="/recommendforme">Recommendations
+For Me
+ </Link></li>
+
+
+ <li className=''><Link to="/recommendations">My recommendations  </Link></li>
+                <a onClick={handleSignUp} className="btn">LogOut</a>
+                
+                </> 
+                
+                : <Link to="/login">
+                <button onClick={handleSignUp} className="btn">Log-in</button>
+                   </Link>
+            }
     </>;
 
   return (
@@ -59,16 +79,7 @@ For Me
       </div>
       <div className="navbar-end">
 
-      {
-                user ? <>
-                <span>{user.email}</span>
-                <li className='text-sm h-1 w-1'><Link to="/recommendations">My recommendations  </Link></li>
-                <a onClick={handleSignUp} className="btn">LogOut</a>
-                
-                </>  : <Link to="/login">
-                <button onClick={handleSignUp} className="btn">Log-in</button>
-                   </Link>
-            }
+     
        
         <button className="btn btn-outline" onClick={toggleDarkMode}>
           {isDarkMode ? 'Light Mode' : 'Dark Mode'}

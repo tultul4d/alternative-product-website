@@ -1,4 +1,4 @@
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 import { useLoaderData } from "react-router-dom";
 
 
@@ -9,8 +9,11 @@ const ProductUpdate = () => {
         const form = event.target;
         const name = form.name.value;
         const date = form.date.value;
+        const brand = form.brand.value;
+        const title = form.title.value;
+        const reason = form.reason.value;
         console.log(name, date);
-        const updated = {name, date}
+        const updated = {name, date,brand, title,reason}
         
         fetch(`http://localhost:5000/product/${loadedProduct._id}`, {
             method: 'PUT',
@@ -35,6 +38,11 @@ const ProductUpdate = () => {
                 <br />
                 <input type="datetime" name="date" defaultValue={loadedProduct?.createdAt} id="" />
                 <br />
+                <input type="text" name="brand" defaultValue={loadedProduct?.brand} id="" />
+                <br />
+                <input type="text" name="title" defaultValue={loadedProduct?.title} id="" />
+                <br />
+                <input type="text" name="reason" defaultValue={loadedProduct?.reason} id="" />
                 <input type="submit" value="Update" />
             </form>
 

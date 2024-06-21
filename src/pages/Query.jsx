@@ -2,11 +2,16 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
-const Query = ({qr}) => {
+const Query = ({qr, search}) => {
     const {_id,name, photo, brand, title, createdAt, reason} = qr
     const {user} = useContext(AuthContext)
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+       <div>
+        
+        
+        
+         <div className="card w-96 bg-base-100 shadow-xl">
+         
         <div className="flex gap-5 mt-5">
    <img className="mask mask-squircle w-12 h-12" src={user?.photoURL} alt="" />
        <h2>{user?.displayName}</h2>
@@ -32,6 +37,7 @@ const Query = ({qr}) => {
    </div>
  </div>
    
+       </div>
    
 
 
