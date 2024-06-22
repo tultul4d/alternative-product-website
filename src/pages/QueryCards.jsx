@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Query from "./Query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
@@ -8,12 +8,21 @@ import { useState } from "react";
 const QueryCards = () => {
   const query = useLoaderData();
   const [search, setSearch] = useState('');
-  const [layout, setLayout] = useState('grid-cols-1');
+  const [layout, setLayout] = useState('grid-cols-3');
+  // const [filteredQueries, setFilteredQueries] = useState(allQueries);
 
-  const handleSearch = e =>{
+  useEffect(() => {
+    
+    // Filter queries based on search input
+    const result = query.filter(query => 
+      query.name.toLowerCase().includes(search.toLowerCase())
+    );
+   console.log(result);
+  }, [search,query]);
+
+  const handleSearch = e => {
     e.preventDefault();
     const searchText = e.target.search.value;
-    console.log(searchText);
     setSearch(searchText);
   }
   
@@ -37,7 +46,8 @@ const QueryCards = () => {
         </div>
           <div className={`grid ${layout} gap-5 mt-5`}>
           {
-            query.map(qr => <Query key={qr.id} qr={qr}></Query> )
+           
+            query.map(qr => <Query key={qr.id} qr={qr}></Query> ) 
           }
           </div>
         </div>

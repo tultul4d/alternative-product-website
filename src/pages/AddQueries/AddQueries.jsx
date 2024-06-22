@@ -49,7 +49,7 @@ const AddQueries = () => {
     }
     return (
         <div className="bg-red-200 p-24 :">
-            <h2 className="text-3xl font-extrabold">Add Products</h2>
+            <h2 className="text-3xl font-extrabold text-center ">Add Products</h2>
             <form onSubmit={handleAddProduct}>
                 {/* from row */}
                 <div className="md:flex">
