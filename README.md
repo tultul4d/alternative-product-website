@@ -101,3 +101,9 @@ Content: Display all recommendations made by the user in a table format.
 Delete Button: Allow users to delete their recommendations with confirmation.
 Recommendations For Me
 Content: Display all recommendations made by others for the user's queries in a table format.
+# Search functionality :
+on this all query pages
+# Change Layout: 
+on this all query page and my query page
+# Dark / Light Theme:
+ in this navber
