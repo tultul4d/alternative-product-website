@@ -20,7 +20,7 @@ const Products = () => {
     return (
         <div>
             <div>
-                <h3 className="text-3xl font-mono text-center">Best Products</h3>
+                <h3 className="text-3xl font-bold text-center mt-5">Best Products</h3>
                 {/* <p>product{products.length}</p> */}
             </div>
 
