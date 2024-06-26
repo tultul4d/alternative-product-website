@@ -20,8 +20,8 @@ const Products = () => {
     return (
         <div>
             <div>
-                <h3 className="text-3xl">Best Products</h3>
-                <p>product{products.length}</p>
+                <h3 className="text-3xl font-mono text-center">Best Products</h3>
+                {/* <p>product{products.length}</p> */}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
