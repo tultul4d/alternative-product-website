@@ -9,7 +9,7 @@ const Recommendations = () => {
     const [recommend, setRecommend] = useState([]);
 
 
-    const url = `http://localhost:5000/commend?email=${user?.email}`;
+    const url = `https://product-website-server.vercel.app/commend?email=${user?.email}`;
     useEffect( () => {
         fetch(url)
         .then(res => res.json())
@@ -19,12 +19,12 @@ const Recommendations = () => {
     const handleDelete = id => {
         const proceed = confirm('Are yor sure you want to delete') ;
         if(proceed){
-            fetch(`http://localhost:5000/commend/${id}` , {
+            fetch(`https://product-website-server.vercel.app/commend/${id}` , {
                 method: 'DELETE'
             })  
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if(data.deletedCount > 0) alert('delete succesfuly');
                 const remaining = recommend.filter(re => re._id !==id);
                 setRecommend(remaining);

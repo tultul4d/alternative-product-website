@@ -48,23 +48,23 @@ const router = createBrowserRouter([
         {
           path: '/update/:id',
           element: <ProductUpdate></ProductUpdate>,
-          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+          loader: ({params}) => fetch(`https://product-website-server.vercel.app/product/${params.id}`)
         },
         {
            path: '/query',
            element: <QueryCards></QueryCards>,
-           loader: () => fetch('http://localhost:5000/product')
+           loader: () => fetch('https://product-website-server.vercel.app/product')
         },
         
         {
           path:'/details/:id',
           element: <QueryDetails></QueryDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+          loader: ({params}) => fetch(`https://product-website-server.vercel.app/product/${params.id}`)
         },
         {
           path: '/recommend/:id',
           element: <Recommend></Recommend>,
-          loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`)
+          loader: ({params}) => fetch(`https://product-website-server.vercel.app/product/${params.id}`)
         },
         {
           path: '/recommendations',

@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const QueryDetails = () => {
     const qr = useLoaderData();
-    console.log(qr);
+    // console.log(qr);
 
 
     const { user } = useContext(AuthContext);
@@ -19,7 +19,7 @@ const QueryDetails = () => {
 
     // Fetch recommendations for the current query
     useEffect(() => {
-        fetch(`http://localhost:5000/commend?queryId=${qr._id}`)
+        fetch(`https://product-website-server.vercel.app/commend?queryId=${qr._id}`)
             .then(res => res.json())
             .then(data => setRecommendations(data))
             .catch(error => console.error('Error fetching recommendations:', error));
@@ -46,7 +46,7 @@ const QueryDetails = () => {
         };
 
         // Save the recommendation in the database
-        fetch('http://localhost:5000/recommendations', {
+        fetch('https://product-website-server.vercel.app/recommendations', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(recommendationData),
@@ -55,7 +55,7 @@ const QueryDetails = () => {
             .then(data => {
                 setRecommendations([...recommendations, data]);
                 // Increment the recommendation count for the query
-                fetch(`http://localhost:5000/product/${qr._id}`, {
+                fetch(`https://product-website-server.vercel.app/product/${qr._id}`, {
                     method: 'PATCH',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ recommendationCount: qr.recommendationCount + 1 }),

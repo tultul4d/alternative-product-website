@@ -10,7 +10,7 @@ const MyQueriers = () => {
 
   useEffect(() => {
     // Fetch user's queries
-    fetch('http://localhost:5000/product')
+    fetch('https://product-website-server.vercel.app/product')
         .then(res => res.json())
         .then(data => setQueries(data))
         .catch(error => console.error('Error fetching queries:',error));
@@ -26,7 +26,7 @@ const handleLayoutChange = (columns) => {
        
 
     const handleUpdate = () => {
-      //  fetch(`http://localhost:5000/product/${_id}`,
+      //  fetch(`https://product-website-server.vercel.app/product/${_id}`,
       //   {
       //     method: 'DELETE'
       //   }
@@ -40,7 +40,7 @@ const handleLayoutChange = (columns) => {
     const handleDelete = (queryId) => {
         if (window.confirm('Are you sure you want to delete this query?')) {
             // Delete query logic
-            fetch(`http://localhost:5000/product/${queryId}`, {
+            fetch(`https://product-website-server.vercel.app/product/${queryId}`, {
                 method: 'DELETE'
             })
             .then(() => {

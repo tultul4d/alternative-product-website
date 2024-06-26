@@ -12,10 +12,10 @@ const ProductUpdate = () => {
         const brand = form.brand.value;
         const title = form.title.value;
         const reason = form.reason.value;
-        console.log(name, date);
+        // console.log(name, date);
         const updated = {name, date,brand, title,reason}
         
-        fetch(`http://localhost:5000/product/${loadedProduct._id}`, {
+        fetch(`https://product-website-server.vercel.app/product/${loadedProduct._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +25,7 @@ const ProductUpdate = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
         })
 
 

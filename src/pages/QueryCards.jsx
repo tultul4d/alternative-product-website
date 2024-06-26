@@ -29,7 +29,7 @@ const QueryCards = () => {
   const handleLayoutChange = (layout) => {
     setLayout(layout);
   }
-  console.log(query);
+  // console.log(query);
     return (
         <div className="">
            <div className="lg:ml-96 md:ml-96 ">

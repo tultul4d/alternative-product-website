@@ -47,9 +47,9 @@ const Recommend = () => {
         }
            // Add the current date and time
            
-        console.log(order);
+        // console.log(order);
 
-        fetch('http://localhost:5000/commend', {
+        fetch('https://product-website-server.vercel.app/commend', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -58,7 +58,7 @@ const Recommend = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             if(data.insertedId){
                 alert('comment successfully')
             }

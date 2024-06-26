@@ -8,7 +8,7 @@ const RecommendationsForMe = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/commend?userId=${user.id}`)
+            fetch(`https://product-website-server.vercel.app/commend?userId=${user.id}`)
                 .then(res => res.json())
                 .then(data => setRecommendations(data))
                 .catch(error => console.error('Error fetching recommendations:', error));

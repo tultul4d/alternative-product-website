@@ -12,7 +12,7 @@ const Products = () => {
     
 
     useEffect( () =>{
-         fetch('http://localhost:5000/product')
+         fetch('https://product-website-server.vercel.app/product')
          .then(res => res.json())
          .then(data => setProduct(data))
          .catch(error => console.error('error fetching',error))

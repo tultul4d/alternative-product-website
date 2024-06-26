@@ -15,14 +15,14 @@ const SignUp = () => {
         const email = form.email.value;
         const photo = form. photo.value;
         const password = form.password.value;
-        console.log(name,email,password,photo);
+        // console.log(name,email,password,photo);
 
         createUser(email, password)
         .then(result => {
           updateUserProfile(
            name, photo)
             const user = result.user;
-            console.log(user);
+            // console.log(user);
         })
         .catch(error => console.log(error))
 
