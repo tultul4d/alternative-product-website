@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { data } from "autoprefixer";
 import RecommendRow from "./RecommendRow";
+
 
 
 const Recommendations = () => {

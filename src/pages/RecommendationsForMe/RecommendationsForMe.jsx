@@ -20,7 +20,7 @@ const RecommendationsForMe = () => {
     }
     return (
         <div>
-        <h2>Recommendations For Me</h2>
+        <h2 className=" text-center mt-5 mb-5 text-4xl font-mono">Recommendations For Me</h2>
         <table className="table-auto w-full">
             <thead>
                 <tr>
@@ -29,7 +29,7 @@ const RecommendationsForMe = () => {
                     {/* <th>Product Name</th> */}
                     <th>Recommender Name</th>
                     <th>Recommender Email</th>
-                    <th>Reason</th>
+                  
                     <th>Created At</th>
                 </tr>
             </thead>
@@ -41,7 +41,7 @@ const RecommendationsForMe = () => {
                         {/* <td>{rec.productName}</td> */}
                         <td>{rec.recommenderName}</td>
                         <td>{rec.recommenderEmail}</td>
-                        <td>{rec.reason}</td>
+                        
                         <td>{new Date(rec.createdAt).toLocaleString()}</td>
                     </tr>
                 ))}

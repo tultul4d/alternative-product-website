@@ -10,10 +10,10 @@ import ProductUpdate from "../pages/ProductUpdate";
 import QueryDetails from "../pages/QueryDetails";
 
 
-import Query from "../pages/Query";
+// import Query from "../pages/Query";
 import QueryCards from "../pages/QueryCards";
 import Recommend from "../pages/Recommend/Recommend";
-import { RecaptchaVerifier } from "firebase/auth";
+// import { RecaptchaVerifier } from "firebase/auth";
 import Recommendations from "../pages/Recommendations/Recommendations";
 import PrivateRoute from "./PrivateRoute";
 import RecommendationsForMe from "../pages/RecommendationsForMe/RecommendationsForMe";
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         {
           path: '/recommend/:id',
           element: <Recommend></Recommend>,
-          loader: ({params}) => fetch(`https://product-website-server.vercel.app/product/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/request/${params.id}`)
         },
         {
           path: '/recommendations',
